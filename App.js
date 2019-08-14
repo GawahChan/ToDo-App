@@ -32,6 +32,26 @@ export default class App extends React.Component {
     console.log(updateTodos)
   }
 
+toggleDone(item) {
+  let todos = this.state.todos;
+
+  todos = todos.map(todo => {
+    if (todo.id == item.id) {
+      todo.done = !todo.done;
+    }
+    return todo
+  })
+  this.setState({todos});
+}
+
+removeToDo(item) {
+  let todos = this.state.todos;
+
+  todos = todos.filter((todo) => todo.id !== item.id);
+
+  this.setState({todos});
+}
+
   render() {
     return (
       <View style={styles.container}>
@@ -48,7 +68,11 @@ export default class App extends React.Component {
           keyExtractor={( item, index) => index.toString()}
           renderItem={ ({item, index}) => {
             return (
-              <TodoItem todoItem={item}/>
+              <TodoItem 
+                todoItem={item}
+                toggleDone={() => this.toggleDone(item)}
+                removeToDo={() => this.removeToDo(item)}
+              />
             );
           }}
         />

@@ -9,10 +9,18 @@ export default class TodoItem extends React.Component {
     render() {
         const todoItem = this.props.todoItem;
         return (
-            <TouchableOpacity style={styles.todoItem}>
-                <Text style={(todoItem.done) ? {color: '#AAAAAA'} : {color: '#313131'}}>
+            <TouchableOpacity
+                style={styles.todoItem}
+                onPress={() => this.props.toggleDone()}
+            >
+                <Text style={(todoItem.done) ? { color: '#AAAAAA' } : { color: '#313131' }}>
                     {todoItem.title}
                 </Text>
+                <Button 
+                    title="Remove"
+                    color = {(todoItem.done) ? 'rgba(200, 0, 0, 0.5)' : 'rgba(255, 0, 0, 1)' }
+                    onPress={() => this.props.removeToDo()}
+                />
             </TouchableOpacity>
         )
     }
