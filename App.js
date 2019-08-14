@@ -56,7 +56,7 @@ removeToDo(item) {
     return (
       <View style={styles.container}>
         <View style={styles.statusBar} />
-        <Header title="To Do List"/>
+        <Header title="ToDo App"/>
         <InputBar 
           textChange={(updateToDoInput) => this.setState({ todoInput: updateToDoInput })}
           addNewToDo={() => this.addNewToDo()}

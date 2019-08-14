@@ -5,7 +5,8 @@ function InputBar(props) {
     return (
         <View style={styles.inputContainer}>
             <TextInput 
-                style={styles.input} 
+                style={styles.input}
+                placeholder="Enter things you need to do here!"
                 value={props.todoInput}
                 onChangeText= {(todoInput) => props.textChange(todoInput)}
             />
@@ -31,7 +32,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#F3F3F3',
         flex: 1,
         fontSize: 18,
-        height: 35
+        height: 35,
+        paddingLeft: 15
     },
     addButton: {
         width: 100,
